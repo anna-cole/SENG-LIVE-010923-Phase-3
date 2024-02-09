@@ -17,6 +17,7 @@ class Pet:
 
     # ✅ 1. Add "__init__" with "name", "species", "breed", "temperament", and "id" (Default: None) Attributes
     # We need to make sure we create the instances before persisting them on the DB
+    # id is initialized as a default argument. If id is provided it will be assigned. If it's not provided it will be set to None.
 
     def __init__(self, name, species, breed, temperament, id=None):
         self.name = name
@@ -190,7 +191,7 @@ class Pet:
     # spot.update()
     
     def update(self):
-        # Note that we dont have to pass an id as argument, because the method has access to the id through the instance via self. 
+        # Note that we don't have to pass an id as argument, because the method has access to the id via self. It gets the attributes from the object that the method is called on, i.e. spot.update()  
         
         sql = '''
             UPDATE pets
